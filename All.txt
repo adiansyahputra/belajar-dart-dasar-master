@@ -1,0 +1,280 @@
+Pengenalan Dart
+Dart merupakan bahasa pemrograman baru yang pertama kali diperkenalkan tahun 2011
+Dart dibuat di Google oleh Lars Bak dan Kasper Lund
+Dart merupakan bahasa pemrograman yang awal nya di buat untuk Frontend (web dan mobile), namun Dart juga sebenarnya bisa digunakan untuk Backend, namun memang lebih populer penggunaannya di Frontend
+Dart merupakan bahasa pemrograman yang Open Source
+https://dart.dev/ 
+
+Dart Software Development Kit
+Dart merupakan bahasa pemrograman yang multi platform, artinya bisa di install di berbagai sistem operasi, seperti Windows, Linux dan Mac
+Untuk membuat aplikasi menggunakan bahasa pemrograman Dart, kita membutuhkan Dart SDK (Software Development Kit)
+SDK ini digunakan untuk melakukan kompilasi kode program Dart yang kita buat dan juga menjalankan kode program Dart yang kita buat
+
+Menginstall Dart SDK
+Untuk menginstall Dart SDK, kita bisa download aplikasi Dart SDK sesuai sistem operasi yang kita gunakan
+https://dart.dev/get-dart 
+
+Text Editor
+Untuk membuat kode program Dart, kita membutuhkan Text Editor yang bagus, terdapat beberapa aplikasi yang populer untuk membuat kode program Dart
+Visual Studio Code : https://code.visualstudio.com/ 
+IntelliJ IDEA : https://www.jetbrains.com/idea/ 
+Android Studio : https://developer.android.com/studio 
+
+Dart SDK
+Saat kita menginstall Dart SDK, Dart memiliki banyak sekali executable file yang bisa diakses via terminal / command line
+Aplikasi tersebut bisa digunakan untuk membuat project, melakukan kompilasi sampai menjalankan kode program
+Banyak aplikasi yang terdapat di dalam Dart SDK, yang akan kita pelajari secara bertahap
+https://dart.dev/get-dart 
+
+Dart SDK Executable File
+
+Executable File dart
+Salah satu executable yang akan banyak kita  gunakan adalah menggunakan executable file dart di dalam folder bin
+file dart ini digunakan untuk membuat project,  melakukan kompilasi kode program, dan menjalankan aplikasi dart
+
+Kode : Menjalankan File dart
+
+Membuat Project
+Untuk membuat project Dart, kita bisa gunakan perintah :
+dart create nama_project
+
+Kode : Membuat Project Dart
+
+Membuka Project
+Saat membuat project, secara otomatis akan dibuat folder baru dengan nama sesuai dengan nama projectnya
+Selanjutnya, silahkan buka project tersebut menggunakan Text Editor yang kita gunakan
+
+Struktur Project
+
+Program Hello World
+Saat belajar bahasa pemrograman, biasanya hal yang pertama dilakukan adalah membuat aplikasi Hello World
+Aplikasi Hello World adalah aplikasi sederhana yang menampilkan tulisan Hello World
+Kode program Dart, disimpan dalam file dengan  file extension .dart 
+Dart mirip dengan bahasa pemrograman Java, setiap akhir statement dalam kode program, diakhiri dengan karakter titik koma.
+
+Dart Main Function
+Dart hampir mirip dengan bahasa pemrograman seperti C, Java, Kotlin, atau Go-Lang
+Saat kita membuat kode program Dart, kita harus membuat main function terlebih dahulu
+Main function merupakan fungsi utama yang akan dieksekusi oleh Dart
+
+Kode : Dart Main Function
+void main(){
+  print('Hello World');
+}
+
+Function print
+Untuk menampilkan tulisan di Dart, kita bisa menggunakan function print
+print memiliki parameter data string / text, dimana data tersebut bisa menggunakan kutip satu atau kutip dua
+Misal jika kita ingin menampilkan tulisan : Hello World, kita bisa membuat kode program print(‘Hello World’) atau print(“Hello World”)
+
+Kode : Hello World
+void main(){
+  print('Hello World');
+}
+
+Menjalankan Kode Program  Dart
+Untuk menjalankan kode program yang sudah kita buat, kita bisa menggunakan executable file dart, caranya dengan cara menggunakan perintah run, lalu diikuti lokasi file dart yang ingin kita eksekusi, misal
+dart run bin/hello_world.dart
+
+Kode : Menjalankan Kode Program Dart
+dart run bin/hello_world.dart
+
+Variable
+Variable merupakan tempat untuk menyimpan data, ada banyak sekali tipe data di Dart, akan kita bahas di materi-materi tersendiri
+Variable sangat berguna ketika kita ingin menggunakan data yang sama berkali-kali, dibandingkan kita buat berulang-ulang, lebih baik kita simpan data tersebut dalam variable
+Variable wajib memiliki tipe data dan nama variable, ketika kita akan mengakses variable tersebut, kita cukup menyebutkan  nama variable nya
+
+void main() {
+  var name = 'Eko Kurniawan Khannedy';
+
+  print(name);
+
+  print(name);
+
+  print(name);
+
+  print(name);
+
+  var firstName = 'Eko';
+  final lastName = 'Khannedy';
+
+  firstName = 'Budi';
+
+  print(firstName);
+  print(lastName);
+
+  final array1 = [1, 2, 3];
+  const array2 = [1, 2, 3];
+
+  print(array1);
+  print(array2);
+
+  late var value = getValue();
+  print('Variable sudah dibuat');
+  print(value);
+}
+
+String getValue() {
+  print('getValue() dipanggil');
+  return 'Eko  Kurniawan  Khannedy';
+}
+
+Kode : Tanpa Variable
+
+Membuat Variable
+Untuk membuat deklarasi variable, kita bisa gunakan format :
+TipeData namaVariable;
+Biasanya penamaan variable di Dart menggunakan camelCase, seperti firstName, lastName, thisIsLongVariableName
+Setelah mendeklarasikan variable, kita bisa mengubah isi variable dengan cara :
+namaVariable = isi value nya
+
+Kode : Variable
+
+Deklarasi Langsung
+Variable juga bisa dibuat langsung dengan deklarasi nilai nya, ini sangat cocok jika kita ingin membuat variable langsung dengan value dari variable nya
+Cara membuatnya kita bisa gunakan perintah :
+TipeData namaVariable = isi variable;
+
+Kode : Deklarasi Variable Langsung
+
+Kata Kunci var
+Saat kita membuat variable langsung dengan nilainya, kita bisa menggunakan kata kunci var sebagai pengganti TipeData nya
+Ini mirip dengan bahasa pemrograman seperti Java, Go-Lang, Kotlin dan lain-lain
+TipeData akan dibaca sesuai dengan isi nilai nya secara otomatis oleh Dart, sehingga kita tidak perlu menyebutkan TipeData nya lagi
+Cara menggunakan kata kunci var, seperti ini :
+var namaVariable = value;
+
+Kode : Kata Kunci var
+
+Kata Kunci final
+Secara default, variable di Dart bisa dideklarasikan ulang, artinya jika sebelumnya kita membuat variable name dengan value “Eko”, kita bisa ubah variable tersebut menjadi “Joko” dengan cara namaVariable = “Joko”
+Kadang ada kasus dimana kita tidak ingin sebuah variable bisa dideklarasikan ulang, untuk melakukan itu kita bisa gunakan kata kunci final :
+final TipeData namaVariable = value;
+final namaVariable = value;
+
+Kode : Kata Kunci final
+
+Kata Kunci const
+Kata kunci final digunakan agar variable tidak bisa dideklarasikan ulang, namun nilai dari variable nya sendiri bisa diubah
+Di Dart terdapat kata kunci constant, digunakan untuk menjadikan variable dan nilainya menjadi immutable (tidak bisa diubah sama sekali)
+Kata kunci const akan menjadikan data di hardcode pada saat Dart melakukan kompilasi kode program, jadi hati-hati ketika menggunakan kata kunci const
+Misal jika kita membuat data waktu saat ini menggunakan final, maka variable waktu akan selalu mengikuti waktu saat ini, namun jika menggunakan const, nilai waktu akan di hardcode ketika kode program di kompilasi, sehingga tidak akan pernah berubah
+
+Kode : Kata Kunci const
+
+Kata Kunci late
+Di Dart, secara standar, variable akan dideklarasikan nilainya ketika variable dibuat
+Namun kadang ada kasus dimana kita ingin variable dideklarasikan nanti saja, ketika memang variable tersebut diakses, jika tidak diakses, tidak perlu dideklarasikan
+Untuk melakukan hal ini, kita bisa tambahkan kata kunci late di awal deklarasi variable
+
+Kode : Kata Kunci late
+
+Komentar
+Komentar adalah kode program yang akan diabaikan ketika kode program di compile atau dijalankan
+Biasanya komentar digunakan untuk menambahkan dokumentasi pada kode program
+Di Dart, ada banyak jenis komentar
+
+Jenis Komentar
+Single-line atau satu baris, bisa menggunakan perintah :
+// silahkan masukkan komentar disini
+Multi-line atau lebih dari satu baris, bisa menggunakan perintah :
+/*
+isi komentar
+*/
+Documentation, ini adalah jenis komentar yang biasanya digunakan sebagai  dart documentation :
+/// isi dokumentasi
+
+Kode : Komentar
+/// this is main function
+/// will executed by dart
+void main(){
+
+  //  this is name variable
+  var name = 'Eko Kurniawan Khannedy';
+
+  /**
+   * this is multi line comment
+   * you can add more here
+   */
+  print(name);
+
+}
+
+Number
+Number adalah tipe data angka, terdapat dua jenis tipe data Number, int dan double
+int adalah tipe data bilangan bulat
+double adalah tipe data bilangan desimal
+Penulisan koma dalam double menggunakan titik, bukan koma, jadi jika kita akan membuat bilangan desimal 0,5 (nol koma lima), maka ditulis 0.5
+
+Kode : Tipe Data Number
+void main(){
+
+  int number1 = 10;
+  double number2 = 10.5;
+
+  print(number1);
+  print(number2);
+
+  num number = 10;
+  print(number);
+
+  number = 10.5;
+  print(number);
+
+}
+
+num
+Jika kita ingin menggunakan tipe data number yang bisa int ataupun double, kita bisa menggunakan tipe data num
+
+Kode : num
+
+Boolean
+Boolean adalah tipe data yang hanya memiliki dua nilai, yaitu benar atau salah
+Boolean direpresentasikan dengan kata kunci bool
+Untuk nilai benar, menggunakan kata kunci true
+Untuk nilai salah, menggunakan kata kunci false
+
+Kode : Boolean
+void main(){
+
+  bool finish = false;
+  print(finish);
+
+  finish = true;
+  print(finish);
+
+}
+
+String
+String merupakan tipe data text atau tulisan
+Untuk membuat String, kita bisa menggunakan tanda kutip satu atau kutip dua, lalu di dalamnya  berisi nilai text nya
+Walaupun String bisa menggunakan kutip dua, tapi disarankan untuk menggunakan kutip satu saja
+
+Kode : String
+void main() {
+  String firstName = 'Eko';
+  String lastName = "Khannedy";
+
+  print(firstName);
+  print(lastName);
+
+  var fullName = '$firstName ${lastName}';
+  print(fullName);
+
+  var text = 'this is \'dart\' \$cool';
+  print(text);
+
+  var name1 = firstName + " " + lastName;
+  var name2 = 'Eko' ' Kurniawan' ' Khannedy';
+
+  print(name1);
+  print(name2);
+
+  var longString = '''
+this is long string
+multiline string
+learning dart
+  ''';
+
+  print(longString);
+}
