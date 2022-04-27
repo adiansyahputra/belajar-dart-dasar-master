@@ -278,3 +278,126 @@ learning dart
 
   print(longString);
 }
+
+String Interpolation
+String mendukung expression, dimana di dalam expression kita bisa mengambil data dari variable lain
+Untuk membuat expression, kita bisa menggunakan format ${isiExpression}, jika sederhana kita bisa langsung menggunakan $isiExpression
+
+Kode : Expression
+  var fullName = '$firstName ${lastName}';
+  print(fullName);
+
+Karakter Backslah
+Karakter \ (backslash) di String bisa digunakan untuk menekankan bahwa karakter setelahnya dianggap benar karakter tersebut
+Seperti contohnya sebelumnya karakter $ dianggap expression, jika kita memang mau membuat karakter $ dalam string, maka kita bisa gunakan \$, atau jika kita mau membuat karakter ‘ (petik satu), kita bisa gunakan \’
+
+Kode : Karakter Backslash
+  var text = 'this is \'dart\' \$cool';
+  print(text);
+
+Menggabungkan String
+Kadang ada kebutuhan kita perlu menggabungkan beberapa data String
+Untuk menggabungkan beberapa data String, kita bisa menggunakan karakter + (tambah)
+Atau jika datanya tidak dalam bentuk variable, kita bisa langsung tambahkan hanya dengan karakter whitespace (spasi, enter, tab)
+
+Kode : Menggabungkan String
+  var name1 = firstName + " " + lastName;
+  var name2 = 'Eko' ' Kurniawan' ' Khannedy';
+
+  print(name1);
+  print(name2);
+
+Multiline String
+Kadang kita butuh membuat String yang sangat panjang, sehingga jika kita buat dalam satu baris kode, kode tersebut akan terlalu panjang
+String mendukung pembuatan data secara multiline, caranya dengan menggunakan petik satu  atau  petik dua sebanyak tiga karakter
+
+Kode : Multiline String
+  var longString = '''
+this is long string
+multiline string
+learning dart
+  ''';
+
+  print(longString);
+
+Dynamic
+Kadang ada kebutuhan kita ingin membuat variable yang bisa menampung semua jenis tipe data
+Pada kasus ini, kita bisa menggunakan tipe data dynamic
+
+Kode : Dynamic
+void main(){
+
+  dynamic variable = 100;
+  print(variable);
+
+  variable = true;
+  print(variable);
+
+  variable = 'Eko';
+  print(variable);
+
+}
+
+Konversi Tipe Data
+Kadang ada kebutuhan kita melakukan konversi tipe data, terutama dari tipe data String ke Number dan Boolean, atau bahkan kebalikannya
+Hal ini biasa kita lakukan ketika misal menerima input dari pengguna aplikasi kita, dimana biasanya inputnya dalam bentuk String, dan kita butuh melakukan konversi ke tipe data yang kita inginkan, misal Number atau Boolean
+
+Konversi Number dan String
+Dart merupakan bahasa pemrograman berorientasi objek, semua tipe data di Dart adalah object, dimana object memiliki method/function
+Kita bisa menggunakan method toString() untuk melakukan konversi dari Number ke String
+Sedangkan untuk melakukan konversi dari String  ke Number, kita bisa gunakan method parse(), baik itu di int ataupun di double
+Sedangkan jika kita ingin melakukan konversi dari Number ke Number lain, kita bisa gunakan  method toInt() atau toDouble()
+
+Kode : Konversi String dan Number
+void main(){
+
+  var inputString = '1000';
+  var inputInt = int.parse(inputString);
+  var inputDouble = double.parse(inputString);
+
+  print(inputString);
+  print(inputInt);
+  print(inputDouble);
+
+  var intToDouble = inputInt.toDouble();
+  var doubleToInt = inputDouble.toInt();
+
+  var intToString = inputInt.toString();
+  var doubleToString = inputDouble.toString();
+
+}
+
+Konversi Boolean dan String
+Untuk melakukan konversi tipe data Boolean ke String, kita bisa gunakan method toString()
+Sedangkan untuk melakukan konversi tipe data String ke Boolean, tidak ada caranya, oleh karena itu untuk melakukan hal ini, biasanya menggunakan operator perbandingan, yang akan kita bahas di materi tersendiri
+
+Kode : Konversi Boolean dan String
+void main(){
+
+  var inputString = 'false';
+  var inputBoolean = inputString == 'true';
+
+  var booleanToString = inputBoolean.toString();
+
+  print(inputBoolean);
+  print(booleanToString);
+
+}
+
+Operator Aritmatika
+ Operator
+Keterangan
++
+Pertambahan
+- , -expression
+Pengurangan atau Negatif
+*
+Perkalian
+/
+Pembagian, Hasil double
+~/
+Pembagian, Hasil int
+%
+Sisa Bagi
+
+Kode : Operator Aritmatika
