@@ -970,3 +970,365 @@ Switch adalah statement percabangan yang sama dengan if, namun  lebih sederhana 
 Kondisi di switch statement hanya untuk perbandingan ==
 
 Kode : Switch Case
+void main(){
+  
+  var nilai = 'E';
+  
+  switch(nilai){
+    case 'A':
+      print('Wow Anda Lulus Dengan Baik');
+      break;
+    case 'B':
+    case 'C':
+      print('Anda Lulus');
+      break;
+    case 'D':
+      print('Anda Tidak Lulus');
+      break;
+    default:
+      print('Mungkin Anda Salah Jurusan');
+  }
+  
+}
+
+Null
+Kata kunci null merupakan tipe data representasi data kosong
+Secara default, saat kita membuat variable, data harus diisi, jika tidak diisi, maka variable tidak bisa digunakan
+Namun jika kita ingin membuat sebuah variable bisa diisi data null, kita bisa tambahkan karakter ? (tanda tanya), seperti :
+TipeData? namaVariable  = null;
+
+Kode : Null
+void main(){
+
+  int number1;
+  number1 = 10;
+  // number1 = null; // error
+
+  int? number2;
+  number2 = null;
+
+  print(number1);
+  print(number2);
+
+}
+
+Ternary Operator
+Ternary operator adalah operator sederhana dari if 
+Ternary operator terdiri dari  kondisi yang dievaluasi, jika menghasilkan true maka nilai pertama diambil, jika false, maka nilai kedua diambil
+
+Kode : Tanpa Ternary Operator
+void main(){
+
+  var nilai = 80;
+  var ucapan = nilai >= 75 ? 'Selamat Anda Lulus' : 'Silahkan Coba Lagi';
+
+  // if(nilai >= 75){
+  //   ucapan = 'Selamat Anda Lulus';
+  // }else{
+  //   ucapan = 'Silahkan Coba Lagi';
+  // }
+
+  print(ucapan);
+
+}
+
+Kode : Ternary Operator
+  var nilai = 80;
+  var ucapan = nilai >= 75 ? 'Selamat Anda Lulus' : 'Silahkan Coba Lagi';
+
+Null Safety
+Di beberapa bahasa pemrograman, NullPointerException adalah salah satu kesalahan yang sangat sering dilakukan oleh programmer
+Biasanya  NullPointerException terjadi ketika kita mengakses sebuah data, yang ternyata data tersebut adalah null
+Dart mendukung Null Safety, dimana ini bisa membantu programmer dari melakukan kesalahan mengakses data yang bisa null
+
+Null Check
+Secara default, saat kita akan mengakses property, method atau operator terhadap data yang nullable (bisa null), maka Dart akan memberi compile error
+Dart akan meminta kita melakukan Null Check terlebih dahulu, sebelum mengakses data nullable nya
+
+Kode : Null Check
+void main(){
+
+  int? age = null;
+  age = 1;
+
+  if(age != null){
+    double ageDouble = age.toDouble();
+    print(ageDouble);
+  }
+
+  String name = 'Eko';
+  String? nullableName = name;
+
+  int? nullablePrice = null;
+  if(nullablePrice != null){
+    int price = nullablePrice;
+  }
+
+  String? guest;
+  //  guest = 'Eko';
+  String guestName = guest ?? 'Guest';
+  // String guestName =  guest != null ? guest : 'Guest';
+
+  // if(guest != null){
+  //   guestName = guest;
+  // }else{
+  //   guestName = 'Guest';
+  // }
+
+  print(guestName);
+
+  int? nullableNumber;
+  // nullableNumber = 10;
+  // int nonNullableNumber = nullableNumber!; // error
+
+  int? dataInt;
+  double? dataDouble = dataInt?.toDouble();
+
+  // if(dataInt != null){
+  //   dataDouble = dataInt.toDouble();
+  // }
+
+  print(dataDouble);
+
+}
+
+Konversi Nullable ke Non Nullable
+Untuk melakukan  konversi tipe data non nullable ke nullable, kita bisa langsung masukkan data nya  saja
+Namun untuk melakukan konversi tipe data nullable ke non nullable, kita wajib melakukan  null check terlebih dahulu
+
+Kode :  Konversi Nullable ke Non Nullable
+  String name = 'Eko';
+  String? nullableName = name;
+
+  int? nullablePrice = null;
+  if(nullablePrice != null){
+    int price = nullablePrice;
+  }
+
+Default Value
+Kada kita butuh melakukan konversi dari tipe data nullable ke non nullable, namun jika data nya ternyata null, kita ganti dengan default value
+Untuk melakukan hal tersebut, kita tidak  perlu menggunakan if else, kita cukup  menggunakan operator ??  (tanda tanya dua kali)
+
+Kode : Default Value
+  String? guest;
+  //  guest = 'Eko';
+  String guestName = guest ?? 'Guest';
+  // String guestName =  guest != null ? guest : 'Guest';
+
+  // if(guest != null){
+  //   guestName = guest;
+  // }else{
+  //   guestName = 'Guest';
+  // }
+
+  print(guestName);
+
+Konversi Secara Paksa
+Dart mendukung konversi secara paksa dari tipe data  nullable ke non nullable dengan menggunakan karakter ! (tanda seru) setelah nama variable nullable nya
+Namun konsekuensinya, jika ternyata datanya  null, maka otomatis akan terjadi error ketika aplikasi berjalan, jadi gunakan secara bijak
+
+Kode : Konversi Secara Paksa
+  int? nullableNumber;
+  // nullableNumber = 10;
+  // int nonNullableNumber = nullableNumber!; // error
+
+Mengakses Nullable Member
+Saat kita mengakses nullable member (property, method, operator), maka secara default Dart akan memberi  peringatan untuk melakukan null check
+Namun Kita bisa mengakses nullable member secara aman, tanpa harus memaksa melakukan konversi, caranya dengan menggunakan tanda tanya (?)
+Namun konsekuensinya, ketika mengakses nullable member, hasil dari member tersebut bisa jadi null kalo datanya ternyata null
+
+Kode : Mengakses Nullable Member
+  int? dataInt;
+  double? dataDouble = dataInt?.toDouble();
+
+  // if(dataInt != null){
+  //   dataDouble = dataInt.toDouble();
+  // }
+
+  print(dataDouble);
+
+For Loop
+For adalah salah satu kata kunci yang bisa digunakan untuk melakukan perulangan
+Blok kode yang terdapat di dalam for akan selalu diulangi selama kondisi for terpenuhi
+
+Sintak Perulangan For
+for(init statement; kondisi; post statement){
+   // block perulangan
+}
+Init statement akan dieksekusi hanya sekali di awal sebelum perulangan
+Kondisi akan dilakukan pengecekan dalam setiap perulangan, jika true perulangan akan dilakukan, jika false perulangan akan berhenti
+Post statement akan dieksekusi setiap kali diakhir perulangan
+Init statement, Kondisi dan Post Statement tidak wajib diisi, jika Kondisi tidak diisi, berarti kondisi selalu bernilai true
+
+Kode : Perulangan Tanpa Henti
+void main() {
+  for (; ;) {
+    print('Perulangan Ke-$counter');
+  }
+}
+
+Kode : Perulangan Dengan Kondisi
+void main() {
+  for (; counter <= 10;) {
+    print('Perulangan Ke-$counter');
+  }
+}
+
+Kode : Perulangan Dengan Init Statement
+void main() {
+  for (var counter = 1; counter <= 10;) {
+    print('Perulangan Ke-$counter');
+  }
+}
+
+Kode : Perulangan Dengan Post Statement
+void main() {
+  for (var counter = 1; counter <= 10; counter++) {
+    print('Perulangan Ke-$counter');
+  }
+}
+
+While Loop
+While loop adalah versi perulangan yang lebih sederhana dibanding for loop
+Di while loop, hanya terdapat kondisi perulangan, tanpa ada init statement dan post statement
+
+Kode : While Loop
+void main(){
+
+  var counter = 1;
+
+  while(counter <= 10){
+    print('Perulangan ke-$counter');
+
+    counter++;
+  }
+
+}
+
+Do While Loop
+Do While loop adalah perulangan yang mirip dengan while
+Perbedaannya hanya pada pengecekan kondisi
+Pengecekan kondisi di while loop dilakukan di awal sebelum perulangan dilakukan, sedangkan di do while loop dilakukan setelah perulangan dilakukan
+Oleh karena itu dalam do while loop, minimal pasti sekali perulangan dilakukan walaupun kondisi tidak bernilai true
+
+Kode : Do While Loop
+void main(){
+
+  var counter = 1;
+
+  do {
+    print('Perulangan ke-$counter');
+    counter++;
+  }while(counter <= 10);
+
+}
+
+Break dan Continue
+Pada switch case, kita sudah mengenal kata kunci break, yaitu untuk menghentikan case dalam switch
+Sama dengan pada perulangan, break juga digunakan untuk menghentikan seluruh perulangan.
+Namun berbeda dengan continue, continue digunakan untuk menghentikan perulangan saat ini, lalu melanjutkan ke perulangan selanjutnya
+
+Kode : Break
+void main(){
+
+  var counter = 1;
+
+  while(true){
+    print('Perulangan ke-$counter');
+    counter++;
+
+    if(counter > 10){
+      break;
+    }
+  }
+
+}
+
+Kode : Continue
+void main() {
+  for (var counter = 1; counter <= 100; counter++) {
+    if (counter % 2 == 0) {
+      continue;
+    }
+
+    print('Perulangan ke-$counter');
+  }
+}
+
+For  In
+Kadang kita biasa mengakses data List menggunakann perulangan
+Mengakses data List menggunakan perulangan sangat bertele-tele, kita harus membuat counter, lalu mengakses List menggunakan counter yang kita buat
+Namun untungnya, terdapat perulangan for in, yang bisa digunakan untuk mengakses seluruh data di List secara otomatis
+
+Kode : Tanpa For In
+void main(){
+
+  var names = <String>['Eko', 'Kurniawan', 'Khannedy'];
+
+  // for(var i = 0; i < names.length; i++){
+  //   print(names[i]);
+  // }
+
+  for(var value in names){
+    print(value);
+  }
+
+  var namesSet = <String>{'Eko', 'Kurniawan', 'Khannedy'};
+  for(var value in namesSet){
+    print(value);
+  }
+
+}
+
+  var names = <String>['Eko', 'Kurniawan', 'Khannedy'];
+
+  // for(var i = 0; i < names.length; i++){
+  //   print(names[i]);
+  // }
+
+Kode : Menggunakan For In
+  for(var value in names){
+    print(value);
+  }
+
+  var namesSet = <String>{'Eko', 'Kurniawan', 'Khannedy'};
+  for(var value in namesSet){
+    print(value);
+
+Function
+Function adalah blok kode program yang akan berjalan saat kita panggil
+Sebelumnya kita sudah menggunakan method print() untuk menampilkan tulisan di console
+Untuk membuat function, kita bisa menggunakan kata kunci void, lalu diikuti dengan nama function, kurung () dan diakhiri dengan block
+Kita bisa memanggil function dengan menggunakan nama function lalu diikuti dengan kurung ()
+Di bahasa pemrograman lain, Function juga disebut dengan Method
+
+Kode : Function
+void sayHello(){
+  print('Hello World');
+  print('Hello Lagi');
+  print('Hello Lagi dan lagi');
+}
+
+void main(){
+  sayHello();
+  sayHello();
+  sayHello();
+}
+
+Function Parameter
+Kita bisa mengirim informasi ke function yang ingin kita panggil
+Untuk melakukan hal tersebut, kita perlu menambahkan parameter atau argument di function yang sudah kita buat
+Cara membuat parameter sama seperti cara membuat variabel
+Parameter ditempatkan di dalam kurung () di deklarasi function
+Parameter bisa lebih dari satu, jika lebih dari satu, harus dipisah menggunakan tanda koma
+Ketika memanggil function, kita bisa sebut nama function nya, lalu gunakan kurung (), jika terdapat parameter dalam kurung (), silahkan masukkan parameter sesuai dengan jumlah parameter nya
+
+Kode : Function Parameter
+void sayHello(String firstName, String lastName){
+  print('Hello $firstName $lastName');
+}
+
+void main(){
+  sayHello('Eko', 'Khannedy');
+  sayHello('Budi', 'Nugraha');
+}
