@@ -1332,3 +1332,415 @@ void main(){
   sayHello('Eko', 'Khannedy');
   sayHello('Budi', 'Nugraha');
 }
+
+Optional Parameter
+Secara default, parameter wajib dikirim ketika kita memanggil function
+Namun jika kita ingin membuat parameter yang optional, artinya tidak wajib dikirim, kita bisa wrap dalam  kurung []
+Dan parameter optional haruslah nullable
+
+Kode :  Optional Parameter
+void sayHello(String firstName, [String middleName = '', String lastName = '']){
+  print('Hello $firstName $middleName $lastName');
+}
+
+void main(){
+  sayHello('Eko');
+  sayHello('Eko', 'Kurniawan');
+  sayHello('Eko', 'Kurniawan', 'Khannedy');
+}
+
+Default Value
+Jika optional parameter tidak ingin nullable, maka kita wajib menambahkan default value
+Caranya, setelah nama parameter, kita tambahkan = default value
+
+Kode : Default Value
+void sayHello(String firstName, [String middleName = '', String lastName = '']){
+  print('Hello $firstName $middleName $lastName');
+}
+
+void main(){
+  sayHello('Eko');
+  sayHello('Eko', 'Kurniawan');
+  sayHello('Eko', 'Kurniawan', 'Khannedy');
+}
+
+Named Parameter
+Secara default, posisi parameter ketika kita memanggil function harus sesuai dengan posisi parameter di function tersebut
+Dart memiliki fitur dengan named parameter, dimana saat memanggil parameter kita bisa menyebutkan nama parameter nya, sehingga posisinya tidak perlu harus sesuai dengan posisi parameter nya
+Namun ketika membuat function nya, kita perlu melakukan perubahan ketika membuat parameter nya, yaitu dengan menggunakan kurung kurawal {} 
+Secara default, named parameter adalah nullable, sehingga kita perlu tambahkan karakter ?
+
+Kode : Named Parameter
+
+void sayHello({required String firstName, String lastName = 'Default'}){
+  print('Hello $firstName $lastName');
+}
+
+void main(){
+
+  sayHello(firstName: 'Eko');
+  sayHello(firstName: 'Eko');
+  sayHello(lastName: 'Khannedy', firstName: 'Budi');
+  sayHello(lastName: 'Khannedy', firstName: 'Eko');
+
+}
+
+Default Parameter Value
+Karena secara default, named parameter adalah nullable,  sehingga secara otomatis ketika memanggil function, kita tidak wajib mengirim parameter tersebut
+Agar nilai parameter tidak null, kita juga bisa memberikan default value dengan menambah = nilai default nya
+
+Kode : Default Parameter Value
+void sayHello({required String firstName, String lastName = 'Default'}){
+  print('Hello $firstName $lastName');
+}
+
+void main(){
+
+  sayHello(firstName: 'Eko');
+  sayHello(firstName: 'Eko');
+  sayHello(lastName: 'Khannedy', firstName: 'Budi');
+  sayHello(lastName: 'Khannedy', firstName: 'Eko');
+
+}
+
+Required Parameter
+Pada named parameter, kita juga bisa memaksa sebuah parameter menjadi mandatory, sehingga kita memanggil function tersebut, parameter nya wajib ditambahkan
+Caranya kita bisa tambahkan kata kunci required di awal parameter
+
+Required Parameter
+
+void sayHello({required String firstName, String lastName = 'Default'}){
+  print('Hello $firstName $lastName');
+}
+
+void main(){
+
+  sayHello(firstName: 'Eko');
+  sayHello(firstName: 'Eko');
+  sayHello(lastName: 'Khannedy', firstName: 'Budi');
+  sayHello(lastName: 'Khannedy', firstName: 'Eko');
+
+}
+
+Function Return Value
+Secara default, function itu menghasilkan value null, namun jika kita ingin, kita bisa membuat sebuah function yang mengembalikan nilai
+Agar function bisa menghasilkan value, kita harus mengubah kata kunci void dengan tipe data yang dihasilkan
+Dan di dalam block function, untuk menghasilkan nilai tersebut, kita harus menggunakan kata kunci return, lalu diikuti dengan data yang sesuai dengan tipe data yang sudah kita deklarasikan di function
+Kita hanya bisa menghasilkan 1 data di sebuah function, tidak bisa lebih dari satu
+
+Kode : Function Return value
+String sayHello(String name){
+  return 'Hello $name';
+}
+
+int sum(List<int> numbers){
+  var total = 0;
+
+  for (var value in numbers) {
+    total += value;
+  }
+
+  return total;
+}
+
+void main(){
+  var data = sayHello('Eko');
+  print(data);
+
+  var total = sum([10,10,10,10,10]);
+  print(total);
+
+  print(sum([5,5,5,5,5]));
+}
+
+Function Short Expression
+Dart mendukung function short expression
+Dimana jika terdapat sebuah function yang hanya satu baris, kita bisa menyingkatnya secara sederhana
+Untuk membuat  function short expression, kita tidak butuh  kurung  {} dan juga tidak butuh kata kunci return
+
+Kode : Function Short Expression
+
+// int sum(int first, int second){
+//   return first + second;
+// }
+
+int sum(int first, int second) => first + second;
+
+void main(){
+  var total = sum(10, 10);
+  print(total);
+
+  print(sum(5, 5));
+}
+
+Inner Function
+Di Dart, kita bisa membuat inner  function di dalam outer  function
+Namun perlu diperhatikan, inner  function yang dibuat di dalam outer function, hanya bisa  diakses dari outer function saja, tidak bisa diakses dari luar outer function
+Untuk lebih detail tentang ini akan  kita bahas di materi tentang Scope
+
+Kode : Inner Function
+void contoh(){
+  // sayHello(); // error
+}
+
+void main(){
+
+  void sayHello(){
+    print('Hello Inner Function');
+
+    void sayHelloAgain(){
+
+    }
+
+  }
+
+  sayHello();
+  sayHello();
+
+}
+
+Main Function
+Kita sudah tahu dari awal, bahkan main function adalah function yang digunakan sebagai gerbang masuk aplikasi  Dart
+Function main adalah function yang akan dijalankan pertama kali oleh Dart
+
+Main Function Parameter
+Main function memiliki sebuah parameter optional, yaitu adalah arguments, dimana data parameter tersebut berupa List<String>
+Data List<String> tersebut diambil secara otomatis ketika kita menjalankan file dart menggunakan perintah  :
+dart namafile.dart arg1 arg2 arg3
+dart namafile.dart  “argument 1” “argument  2” “argument 3”
+
+Kode : Main Function Parameter
+void main(List<String> args){
+  print('Arguments : $args');
+}
+
+Higher Order Function
+Higher-Order Function adalah function yang menggunakan function sebagai variable, parameter atau return value
+Penggunaan Higher-Order Function kadang berguna ketika kita ingin membuat function yang general dan ingin mendapatkan input yang flexible beruba function, yang bisa dideklarasikan oleh pengguna ketika memanggil function tersebut
+
+Kode :  Function as Parameter
+void sayHello(String name, String Function(String) filter) {
+  var filteredName = filter(name);
+  print('Hi $filteredName');
+}
+
+String filterBadWord(String name) {
+  if (name == "gila") {
+    return "****";
+  } else {
+    return name;
+  }
+}
+
+void main(){
+  sayHello('Eko', filterBadWord);
+  sayHello('gila', filterBadWord);
+}
+
+void sayHello(String name, String Function(String) filter) {
+  var filteredName = filter(name);
+  print('Hi $filteredName');
+}
+
+Kode  : Higher Order Function
+String filterBadWord(String name) {
+  if (name == "gila") {
+    return "****";
+  } else {
+    return name;
+  }
+}
+
+void main(){
+  sayHello('Eko', filterBadWord);
+  sayHello('gila', filterBadWord);
+}
+
+Anonymous Function
+Kebanyakan function biasanya memiliki nama, seperti sayHello(), print() dan  lain-lain
+Kita juga bisa membuat function yang tidak memiliki nama, atau disebut anonymous function. Di bahasa pemrograman lain ada yang memanggilnya lambda
+Pembuatan anonymous function mirip seperti function bisanya, namun yang membedakan adalah tidak ada nama function nya
+Biasanya anonymous function sering digunakan ketika memanggil function yang membutuhkan parameter berupa function
+
+Kode : Anonymous Function as Variable
+void sayHello(String name, String Function(String) filter){
+  print('Hello ${filter(name)}');
+}
+
+void main(){
+
+  sayHello('Eko Kurniawan Khannedy', (name){
+    return name.toUpperCase();
+  });
+
+  sayHello('Eko Kurniawan Khannedy', (name) => name.toLowerCase());
+
+  var upperFunction = (String name){
+    return name.toUpperCase();
+  };
+
+  var lowerFunction = (String name) => name.toLowerCase();
+
+  var result1 = upperFunction('Eko');
+  print(result1);
+
+  var result2 = lowerFunction('Eko');
+  print(result2);
+
+}
+
+Kode : Anonymous Function as Parameter
+void sayHello(String name, String Function(String) filter){
+  print('Hello ${filter(name)}');
+}
+
+void main(){
+
+  sayHello('Eko Kurniawan Khannedy', (name){
+    return name.toUpperCase();
+  });
+
+  sayHello('Eko Kurniawan Khannedy', (name) => name.toLowerCase());
+
+  var upperFunction = (String name){
+    return name.toUpperCase();
+  };
+
+  var lowerFunction = (String name) => name.toLowerCase();
+
+  var result1 = upperFunction('Eko');
+  print(result1);
+
+  var result2 = lowerFunction('Eko');
+  print(result2);
+
+}
+
+Scope
+Variable atau  Function hanya bisa diakses di dalam area dimana mereka dibuat.
+Hal ini disebut scope
+Contoh, jika sebuah variable dibuat di function, maka hanya bisa diakses di method tersebut, atau jika dibuat didalam block, maka hanya bisa diakses didalam block tersebut
+
+Kode : Scope
+void main() {
+  var name = 'Eko';
+
+  void sayHello(){
+    var hello = 'Hello $name';
+    print(hello);
+  }
+
+  sayHello();
+  // print(hello); error
+}
+
+void contoh(){
+  // sayHello(); error
+}
+
+Closure
+Closure adalah kemampuan sebuah function atau anonymous function berinteraksi dengan data-data disekitarnya dalam scope yang sama
+Harap gunakan fitur closure ini dengan bijak saat kita membuat aplikasi
+
+Kode : Closure
+void main(){
+
+  var counter = 0;
+
+  void increment(){
+    print('Increment');
+    counter++;
+  }
+
+  print(counter);
+
+  increment();
+  increment();
+
+  print(counter);
+
+}
+
+Recursive Function
+Recursive function adalah function yang memanggil function dirinya sendiri
+Kadang dalam pekerjaan, kita sering menemui kasus dimana menggunakan recursive function lebih mudah dibandingkan tidak menggunakan recursive function
+Contoh kasus yang lebih mudah diselesaikan menggunakan recursive adalah Factorial
+
+Kode : Factorial
+int factorialLoop(int value){
+  var result = 1;
+
+  for(var i = 1; i <= value; i++){
+    result *= i;
+  }
+
+  return result;
+}
+
+int factorialRecursive(int value){
+  if(value == 1){
+    return 1;
+  }else{
+    return value * factorialRecursive(value - 1);
+  }
+}
+
+void loop(int value){
+  if(value == 0){
+    print('Selesai');
+  }else{
+    print('Perulangan ke-$value');
+    loop(value - 1);
+  }
+}
+
+void main(){
+  print(factorialLoop(10));
+  print(1 * 2 * 3 * 4 * 5 * 6 * 7 *8 * 9* 10);
+  print(factorialRecursive(10));
+
+  // factorialRecursive(10) // fac(10) => 10 * fac(9) => 10 * 9 * fac(8) =>
+
+  loop(100000);
+}
+
+int factorialLoop(int value){
+  var result = 1;
+
+  for(var i = 1; i <= value; i++){
+    result *= i;
+  }
+
+  return result;
+}
+
+Kode : Factorial Recursive
+int factorialRecursive(int value){
+  if(value == 1){
+    return 1;
+  }else{
+    return value * factorialRecursive(value - 1);
+  }
+}
+
+Masalah Dengan Recursive
+Walaupun recursive function itu sangat menarik, namun kita perlu berhati-hati
+Jika recursive terlalu dalam, maka  akan ada kemungkinan  terjadi error StackOverflow, yaitu error dimana stack pemanggilan function terlalu banyak
+Kenapa problem ini  bisa terjadi? Karena ketika kita memanggil function, Dart akan menyimpannya dalam stack, jika function tersebut memanggil function lain, maka stack akan menumpuk terus, dan jika terlalu dalam, maka stack akan terlalu besar, dan bisa menyebabkan error StackOverflow
+
+Kode : Masalah Dengan Recursive
+void loop(int value){
+  if(value == 0){
+    print('Selesai');
+  }else{
+    print('Perulangan ke-$value');
+    loop(value - 1);
+  }
+}
+
+Materi Selanjutnya
+Dart Object Oriented Programming
+Dart Standard Library
+Dart Packages
+Dart Unit Test
+Dart Async
