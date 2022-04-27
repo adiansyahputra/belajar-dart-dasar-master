@@ -401,3 +401,572 @@ Pembagian, Hasil int
 Sisa Bagi
 
 Kode : Operator Aritmatika
+void main(){
+
+  var first = 10;
+  var second = 3;
+
+  print(first + second);
+  print(first - second);
+  print(first * second);
+  print(first / second);
+  print(first ~/ second);
+  print(first % second);
+
+}
+
+Operator Perbandingan
+Operator perbandingan adalah operator yang hasilnya adalah bool
+Operator perbandingan bisa digunakan di tipe data number dan string
+
+Operator Perbandingan
+ Operator
+Keterangan
+==
+Sama dengan
+!=
+Tidak sama dengan
+>
+Lebih dari
+<
+Kurang dari
+>=
+Lebih dari atau sama dengan
+<=
+Kurang dari atau sama dengan
+void main(){
+
+  print(10 == 10);
+  print(10 != 10);
+  print(10 > 10);
+  print(10 < 10);
+  print(10 >= 10);
+  print(10 <= 10);
+
+  print('eko' == 'eko');
+  print('eko' != 'eko');
+
+}
+
+Operator Penugasan
+ Operator Aritmatika
+Augmented Assignments
+a = a + 10
+a += 10
+a = a - 10 
+a -= 10
+a = a * 10
+a *= 10
+a = a / 10
+a /= 10
+a = a ~/ 10
+a ~/= 10
+a = a % 10
+a %= 10
+
+Increment dan Decrement
+ Operator
+Keterangan
+++var
+var = var + 1 (expression is var + 1)
+var++
+var = var + 1 (expression is var)
+--var
+var = var - 1 (expression is var - 1)
+var--
+var = var - 1 (expression is var)
+
+void main(){
+
+  var a = 10;
+
+  // a = a + 10;
+  a += 10;
+
+  print(a);
+
+  var i = 0;
+  // i++; // i = i + 1;
+
+  var j = i++; // j = i, i++
+  var k = ++i; // k = (++i)
+
+  print(i);
+  print(j);
+
+}
+
+Operator Logika
+Operator logika adalah operator untuk dua buah data bool
+Hasil dari operator logika adalah bool lagi
+
+Operator Logika
+ Operator
+Keterangan
+&&
+Dan
+||
+Atau
+!
+Kebalikan
+
+Operasi &&
+ Nilai 1
+Operator
+Nilai 2
+Hasil
+true
+&&
+true
+true
+true
+&&
+false
+false
+false
+&&
+true
+false
+false
+&&
+false
+false
+
+Operasi ||
+ Nilai 1
+Operator
+Nilai 2
+Hasil
+true
+||
+true
+true
+true
+||
+false
+true
+false
+||
+true
+true
+false
+||
+false
+false
+
+Operasi !
+ Operator
+Nilai 2
+Hasil
+!
+true
+false
+!
+false
+true
+
+Operator Type Test
+ Operator
+Keterangan
+as
+Typecast, melakukan konversi tipe data secara paksa
+is
+true, jika object sesuai tipe data
+is!
+true, jika object tidak sesuai tipe data
+
+Kode : Operator Type Test
+void main(){
+
+  dynamic variable = 100;
+
+  // var variableString = variable as String; // error
+  var variableInt = variable as int;
+
+  print(variable);
+  print(variableInt);
+
+  print(variable is int);
+  print(variable is bool);
+  print(variable is String);
+
+  print(variable is! int);
+  print(variable is! bool);
+  print(variable is! String);
+
+}
+
+List
+List merupakan tipe data yang berisikan kumpulan data
+Di bahasa pemrograman lain, tipe data ini dikenal dengan tipe data Array
+Saat kita membuat List, kita perlu menentukan isi dari tipe data List
+Untuk membuat data List, kita bisa menggunakan []
+Di  Dart, semua tipe data adalah object, dimana List sendiri memiliki property, method dan operator
+Sekarang kita akan bahas beberapa method  dan operator di List, untuk lebih detail nanti kita akan bahas 
+https://api.dart.dev/stable/2.13.4/dart-core/List-class.html 
+
+Membuat List
+Untuk membuat list, kita bisa tentukan tipe datanya, misal :
+List<TipeData> namaVariable = [];
+Atau bisa menggunakan kata kunci var atau final :
+var namaVariable = <TipeData>[];
+final namaVariable = <TipeData>[];
+
+Kode : Membuat List
+void main(){
+
+  List<int> listInt = [];
+
+  var listString = <String>[];
+
+  print(listInt);
+  print(listString);
+
+  var names = <String>[
+    'Eko',
+    'Kurniawan',
+    'Khannedy',
+  ];
+
+  // names.add('Eko');
+  // names.add('Kurniawan');
+  // names.add('Khannedy');
+
+  print(names);
+  print(names.length);
+
+  print(names[0]);
+
+  names[0] = 'Budi';
+  print(names[0]);
+
+  names.removeAt(1);
+  print(names);
+  print(names[1]);
+
+}
+
+Menambah Data di List
+Data di dalam List, bisa kita tambah lebih dari satu, anggap aja List adalah sebuah tabel, dimana kita bisa menambah banyak baris di tabel nya
+Ukuran List akan secara otomatis bertambah ketika kita menambahkan data ke dalam list
+Untuk menambahkan data ke List, kita bisa gunakan method add(value)
+Dan untuk mengetahui berapa jumlah data yang ada di List, kita bisa gunakan property length
+
+Kode : Menambah Data di List
+  var names = <String>[
+    'Eko',
+    'Kurniawan',
+    'Khannedy',
+  ];
+
+  // names.add('Eko');
+  // names.add('Kurniawan');
+  // names.add('Khannedy');
+
+Index
+Selain menambahkan data di List, kita juga bisa mengubah data di List atau mendapatkan data di List
+Saat kita menambahkan data di List, secara otomatis data tersebut memiliki index (int), index ini digunakan untuk kita mengakses, mengubah atau menghapus data di List
+Index di List dimulai dari angka 0, dan akan terus bertambah seiring jumlah data yang kita masukkan
+Artinya jika kita memiliki jumlah data di List sebanyak length, index terakhir di List adalah length - 1
+
+Diagram List
+
+Manipulasi Data di List
+ Operator / Method
+Keterangan
+list.add(value)
+Menambah data ke List
+list[index]
+Mengambil data di List
+list[index] = value 
+Mengubah data di List
+list.removeAt(index)
+Menghapus data di List, index secara otomatis akan bergeser
+
+Kode : Manipulasi Data di List
+  print(names[0]);
+
+  names[0] = 'Budi';
+  print(names[0]);
+
+  names.removeAt(1);
+  print(names);
+  print(names[1]);
+
+Deklarasi List Secara Langsung
+List juga mendukung deklarasi data secara langsung ketika pembuatan variable List
+Ini mempermudah kita ketika membuat list jika memang datanya sudah siap
+Caranya bisa gunakan perintah :
+var namaVariable = [value1, value2, value3]
+var namaVariable = <TipeData>[value1, value2, value3]
+var namaVariable = [
+	value1,
+	value2,
+	value3,
+]
+
+Set
+Set merupakan tipe data sama seperti List, namun ada beberapa hal yang berbeda dengan List
+Set tidak menerima duplikat data, artinya jika kita memasukkan data duplikat, hanya satu yang diterima, yang lainnya akan dihiraukan
+Set tidak menjamin urutan data, jika dalam List, urutan data sudah pasti menggunakan index, pada Set tidak ada index
+
+Membuat Set
+Untuk membuat Set, tidak sama dengan membuat List
+Untuk membuat Set, kita menggunakan {} (kurung kurawal )
+Set<TipeData> namaVariable = {};
+var namaVariable = <TipeData>{};
+
+Kode : Membuat List
+void main(){
+
+  Set<int> numbers = {};
+  var strings = <String>{};
+  var doubles = <double>{};
+
+  print(numbers);
+
+  var names = <String>{
+    'Eko',
+    'Eko',
+    'Kurniawan',
+    'Kurniawan',
+    'Khannedy',
+  };
+
+  // names.add('Eko');
+  // names.add('Eko');
+  // names.add('Kurniawan');
+  // names.add('Kurniawan');
+  // names.add('Khannedy');
+
+  print(names);
+  print(names.length);
+
+  names.remove('Eko');
+  names.remove('Tidak Ada');
+  print(names);
+  print(names.length);
+
+}
+  Set<int> numbers = {};
+  var strings = <String>{};
+  var doubles = <double>{};
+
+Manipulasi Set
+ Operator / Method / Property
+Keterangan
+set.length
+Mendapatkan panjang Set
+set.add(value)
+Menambah data ke Set
+set.remove(value)
+Menghapus data dari Set
+
+Kode : Manipulasi Set
+  var names = <String>{
+    'Eko',
+    'Eko',
+    'Kurniawan',
+    'Kurniawan',
+    'Khannedy',
+  };
+
+  // names.add('Eko');
+  // names.add('Eko');
+  // names.add('Kurniawan');
+  // names.add('Kurniawan');
+  // names.add('Khannedy');
+
+  print(names);
+  print(names.length);
+
+  names.remove('Eko');
+  names.remove('Tidak Ada');
+  print(names);
+  print(names.length);
+
+Deklarasi Set Secara Langsung
+Set juga mendukung deklarasi data secara langsung ketika pembuatan variable Set
+Ini mempermudah kita ketika membuat Set jika memang datanya sudah siap
+Caranya bisa gunakan perintah :
+var namaVariable = {value1, value2, value3}
+var namaVariable = <TipeData>{value1, value2, value3}
+var namaVariable = {
+	value1,
+	value2,
+	value3,
+}
+
+Map
+Map adalah tipe data key-value, key mirip seperti index, value adalah data nya
+Sekilas mirip dengan List, yang membedakan adalah, index pada List sudah diatur oleh List secara otomatis, dan nilainya berupa int auto increment dimulai dari nol
+Sedangkan pada Map, key nya bisa ditentukan dengan tipe data apapun, dan kita perlu tentukan secara manual key nya ketika memasukkan value nya
+Jika kita memasukkan dengan key yang sudah ada, secara otomatis data dengan key lama akan diganti dengan data yang baru
+
+Membuat Map
+Untuk membuat Map, kita menggunakan perintah sebagai berikut :
+Map<TipeKey, TipeValue> namaVariable = {};
+var namaVariable = Map<TipeKey, TipeValue>();
+var namaVariable = <TipeKey, TipeValue>{};
+
+Kode : Membuat Map
+void main(){
+
+  Map<String, String> map1 = {};
+  var map2 = Map<String, String>();
+  var map3 = <String, String>{};
+
+  print(map1);
+
+  var name = <String, String>{
+    'first': 'Eko',
+    'middle': 'Kurniawan',
+    'last': 'Khannedy',
+  };
+
+  // name['first'] = 'Eko';
+  // name['middle'] = 'Kurniawan';
+  // name['last'] = 'Khannedy';
+
+  print(name);
+  print(name['first']);
+
+  name['middle'] = 'Nugraha';
+  print(name);
+
+  name.remove('last');
+  print(name);
+
+}
+  Map<String, String> map1 = {};
+  var map2 = Map<String, String>();
+  var map3 = <String, String>{};
+
+  print(map1);
+
+Manipulasi Map
+ Operator / Method / Property
+Keterangan
+map.length
+Mendapatkan panjang Map
+map[key]
+Mendapatkan data di Map
+map[key] = value
+Mengubah data di Map
+map.remove(key)
+Menghapus data di Map
+
+Kode : Manipulasi Map
+  var name = <String, String>{
+    'first': 'Eko',
+    'middle': 'Kurniawan',
+    'last': 'Khannedy',
+  };
+
+  // name['first'] = 'Eko';
+  // name['middle'] = 'Kurniawan';
+  // name['last'] = 'Khannedy';
+
+  print(name);
+  print(name['first']);
+
+  name['middle'] = 'Nugraha';
+  print(name);
+
+  name.remove('last');
+  print(name);
+
+Deklarasi Map Secara Langsung
+Map juga mendukung deklarasi data secara langsung ketika pembuatan variable Map
+Ini mempermudah kita ketika membuat Map jika memang datanya sudah siap
+Caranya bisa gunakan perintah :
+var namaVariable = {
+	key1 : value1,
+	key2: value2,
+	key3: value3,
+}
+
+Symbol
+Symbol merupakan tipe data yang sebenarnya jarang sekali digunakan
+Symbol sebenarnya bisa digunakan sebagai constant
+Untuk membuat Symbol, kita bisa menggunakan tanda #, atau jika kita butuh membuat Symbol dengan nama yang mengandung spasi, kita bisa gunakan Symbol(“text”)
+
+Kode : Symbol
+void main(){
+
+  Symbol symbol1 = Symbol("Eko Kurniawan");
+  var symbol2 = #belajar_dart;
+
+  print(symbol1);
+  print(symbol2);
+
+}
+
+If dan Else
+
+If
+Dalam Dart, if adalah salah satu kata kunci yang digunakan untuk percabangan
+Percabangan artinya kita bisa mengeksekusi kode program tertentu ketika suatu kondisi terpenuhi
+Hampir di semua bahasa pemrograman mendukung percabagan if
+
+Kode : If
+void main() {
+  var nilai = 80;
+  var absen = 0;
+
+  if (nilai >= 80 && absen >= 80) {
+    print('Nilai Anda A');
+  } else if (nilai >= 70 && absen >= 70) {
+    print('Nilai Anda B');
+  } else if (nilai >= 60 && absen >= 60) {
+    print('Nilai Anda C');
+  } else if (nilai >= 50 && absen >= 50) {
+    print('Nilai Anda D');
+  } else {
+    print('Nilai Anda E');
+  }
+}
+
+Else
+Blok if akan dieksekusi ketika kondisi if bernilai true
+Kadang kita ingin melakukan eksekusi program tertentu jika kondisi if bernilai false
+Hal ini bisa dilakukan menggunakan else 
+
+Kode : Else
+  if (nilai >= 80 && absen >= 80) {
+    print('Nilai Anda A');
+  } else if (nilai >= 70 && absen >= 70) {
+    print('Nilai Anda B');
+  } else if (nilai >= 60 && absen >= 60) {
+    print('Nilai Anda C');
+  } else if (nilai >= 50 && absen >= 50) {
+    print('Nilai Anda D');
+  } else {
+    print('Nilai Anda E');
+  }
+
+Else If
+Kada dalam If, kita butuh membuat beberapa kondisi
+Kasus seperti ini, kita bisa menggunakan else if
+Else if bisa ditambahkan sebanyak-banyaknya
+Ketika salah satu kondisi terpenuhi, maka otomatis akan berhenti, if else selanjutnya tidak akan dieksekusi
+
+Kode : Else If
+  if (nilai >= 80 && absen >= 80) {
+    print('Nilai Anda A');
+  } else if (nilai >= 70 && absen >= 70) {
+    print('Nilai Anda B');
+  } else if (nilai >= 60 && absen >= 60) {
+    print('Nilai Anda C');
+  } else if (nilai >= 50 && absen >= 50) {
+    print('Nilai Anda D');
+  } else {
+    print('Nilai Anda E');
+  }
+
+Switch Case
+Kadang kita hanya butuh menggunakan kondisi sederhana di if, seperti hanya menggunakan perbandingan ==
+Switch adalah statement percabangan yang sama dengan if, namun  lebih sederhana cara pembuatannya
+Kondisi di switch statement hanya untuk perbandingan ==
+
+Kode : Switch Case
